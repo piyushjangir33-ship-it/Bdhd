@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Father's Day ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg,#4facfe,#00f2fe);
+    min-height:100vh;
+    padding:20px 10px;
+}
+
+.card{
+    max-width:750px;
+    margin:20px auto;
+    background:#fff;
+    border-radius:20px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+h1{
+    color:#0077b6;
+    font-size:2.2rem;
+    margin-bottom:10px;
+}
+
+.heart{
+    font-size:45px;
+    animation:beat 1s infinite;
+    margin-bottom:20px;
+}
+
+@keyframes beat{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.2);}
+    100%{transform:scale(1);}
+}
+
+img{
+    width:100%;
+    max-width:280px;
+    border-radius:15px;
+    margin:20px auto;
+    display:block;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+p{
+    font-size:1rem;
+    line-height:1.8;
+    color:#333;
+    margin-top:15px;
+}
+
+.quote{
+    font-style:italic;
+    color:#555;
+    margin-top:20px;
+}
+
+button{
+    margin-top:25px;
+    background:#0077b6;
+    color:white;
+    border:none;
+    padding:14px 25px;
+    border-radius:10px;
+    font-size:1rem;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#023e8a;
+}
+
+#surprise{
+    margin-top:20px;
+    color:#0077b6;
+    font-size:1.1rem;
+    font-weight:bold;
+}
+
+.footer{
+    margin-top:30px;
+    font-size:1.2rem;
+    font-weight:bold;
+    color:#0077b6;
+}
+
+audio{
+    display:none;
+}
+
+@media(max-width:600px){
+
+    h1{
+        font-size:1.8rem;
+    }
+
+    .card{
+        padding:20px 15px;
+    }
+
+    button{
+        width:100%;
+    }
+
+    p{
+        font-size:0.95rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <h1>Happy Father's Day ❤️</h1>
+
+    <div class="heart">❤️</div>
+
+    <!-- Father's Photo -->
+    <img src="father.jpg" alt="Father's Photo">
+
+    <!-- Hidden Music -->
+    <audio id="bgMusic" loop>
+        <source src="father-song.mp3" type="audio/mpeg">
+    </audio>
+
+    <p>
+        Dear Dad,
+        <br><br>
+
+        Thank you for being my first hero, my strongest support,
+        and my greatest inspiration.
+
+        Every sacrifice you made, every lesson you taught,
+        and every smile you shared has helped shape my life.
+
+        You stood by me during my hardest moments,
+        celebrated my victories, and never stopped believing in me.
+
+        <br><br>
+
+        I may not say it every day,
+        but I am truly grateful to have a father like you.
+
+        <br><br>
+
+        ❤️ Thank you for everything, Dad.
+        I love you more than words can ever express. ❤️
+    </p>
+
+    <p class="quote">
+        “A father is someone you look up to no matter how tall you grow.”
+    </p>
+
+    <button onclick="showSurprise()">
+        🎁 Click For A Special Surprise
+    </button>
+
+    <div id="surprise"></div>
+
+    <div class="footer">
+        Forever Your Child ❤️
+    </div>
+
+</div>
+
+<script>
+function showSurprise() {
+
+    // Start music when button is clicked
+    let music = document.getElementById("bgMusic");
+    music.play();
+
+    // Show surprise message
+    document.getElementById("surprise").innerHTML =
+    "🌟 Dad, you are my first hero, my role model, my guide, and my biggest blessing. Thank you for your endless love and sacrifices. Happy Father's Day! ❤️🌟";
+
+    // Create falling hearts
+    for(let i=0; i<20; i++){
+        let heart = document.createElement("div");
+        heart.innerHTML = "❤️";
+        heart.style.position = "fixed";
+        heart.style.left = Math.random()*100 + "vw";
+        heart.style.top = "-20px";
+        heart.style.fontSize = (20 + Math.random()*20) + "px";
+        heart.style.animation = "fall 4s linear forwards";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 4000);
+    }
+}
+
+// Falling hearts animation
+const style = document.createElement('style');
+style.innerHTML = `
+@keyframes fall {
+    to {
+        transform: translateY(110vh);
+        opacity: 0;
+    }
+}
+`;
+document.head.appendChild(style);
+</script>
+
+</body>
+</html>
